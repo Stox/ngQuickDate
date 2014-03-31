@@ -18,6 +18,7 @@
         disableTimepicker: false,
         disableClearButton: false,
         defaultTime: null,
+        closeOnSelect: true,
         dayAbbreviations: ["Su", "M", "Tu", "W", "Th", "F", "Sa"],
         dateFilter: null,
         parseDateFunction: function(str) {
@@ -261,6 +262,7 @@
           };
           scope.selectDate = function(date, closeCalendar) {
             var changed;
+            closeCalendar = scope.closeOnSelect || closeCalendar;
             if (closeCalendar == null) {
               closeCalendar = true;
             }

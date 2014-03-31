@@ -273,7 +273,6 @@
             }
             ngModelCtrl.$setViewValue(date);
             if (boolCloseCalendar) {
-                console.log(1)
               scope.toggleCalendar(false);
             }
             return true;

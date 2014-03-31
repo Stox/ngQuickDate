@@ -262,6 +262,7 @@
           };
           scope.selectDate = function(date, closeCalendar) {
             var changed;
+            var boolCloseCalendar = (closeCalendar === 'true');
             closeCalendar = scope.closeOnSelect;
             if (closeCalendar == null) {
               closeCalendar = true;
@@ -271,7 +272,8 @@
               return false;
             }
             ngModelCtrl.$setViewValue(date);
-            if (closeCalendar) {
+            if (boolCloseCalendar) {
+                console.log(1)
               scope.toggleCalendar(false);
             }
             return true;

@@ -116,9 +116,6 @@
             setupCalendarView();
             setInputFieldValues(date);
             scope.mainButtonStr = date ? $filter('date')(date, scope.labelFormat) : scope.placeholder;
-            if(date) {
-                ngModelCtrl.$modelValue = date;
-            }
             return scope.invalid = ngModelCtrl.$invalid;
           };
           setInputFieldValues = function(val) {

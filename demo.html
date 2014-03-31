@@ -14,7 +14,7 @@
       <form name='date_form' novalidate>
         <p>
           <label>My Date</label>
-          <quick-datepicker name='myDate' ng-model='myDate' required></quick-datepicker>
+          <quick-datepicker  name='myDate' ng-model='myDate' time-filter="timeFilter" date-filter="dateFilter" required></quick-datepicker>
         </p>
         <p>
           <label>Some other field</label>
@@ -26,6 +26,7 @@
       <a href='' ng-click='setToToday()'>Set Date to Today</a>
     </div>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- <script type='text/javascript' src='vendor/sugar.js' /> -->
     <!-- <script type='text/javascript' src='vendor/date.js' /> -->
     <!-- <script type='text/javascript' src='bower_components/jquery/jquery.js' /> -->
@@ -39,6 +40,14 @@
       app.controller("DemoCtrl", function($scope) {
         $scope.myDate = null
         $scope.setToToday = function() { $scope.myDate = new Date(); }
+
+          $scope.dateFilter = function(date) {
+
+              var curDate = new Date();
+
+              return curDate.getTime() - 86400000 < date.getTime();
+
+          }
       });
     </script>
   </body>

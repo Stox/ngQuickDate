@@ -57,7 +57,8 @@
         scope: {
           dateFilter: '=?',
           onChange: "&",
-          required: '@'
+          required: '@',
+          ngDisabled: '='
         },
         replace: true,
         link: function(scope, element, attrs, ngModelCtrl) {
@@ -241,6 +242,15 @@
               dateInput = angular.element(element[0].querySelector(".quickdate-date-input"))[0];
               return dateInput.select();
             }
+          });
+          scope.$watch(function() {
+            return scope.ngDisabled;
+          }, function(newValue) {
+              if (newValue) {
+                  $(element).find('input.quickdate-button').attr('disabled', 'disabled');
+              } else {
+                  $(element).find('input.quickdate-button').removeAttr('disabled');
+              }
           });
           scope.toggleCalendar = function(show) {
             if (isFinite(show)) {

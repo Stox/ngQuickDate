@@ -51,7 +51,8 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
   scope:
     dateFilter: '=?'
     onChange: "&"
-    required: '@'
+    required: '@',
+    ngDisabled: '='
 
   replace: true
   link: (scope, element, attrs, ngModelCtrl) ->
@@ -240,6 +241,15 @@ app.directive "quickDatepicker", ['ngQuickDateDefaults', '$filter', '$sce', (ngQ
       if newVal
         dateInput = angular.element(element[0].querySelector(".quickdate-date-input"))[0]
         dateInput.select()
+
+    scope.$watch () ->
+      return scope.ngDisabled ->
+      (newValue) ->
+        if(newValue)
+          element.find('input.quickdate-button').attr('disabled', 'disabled')
+        else
+          element.find('input.quickdate-button').removeAttr('disabled')
+
 
 
     # VIEW ACTIONS

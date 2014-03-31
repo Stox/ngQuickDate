@@ -262,7 +262,7 @@
           };
           scope.selectDate = function(date, closeCalendar) {
             var changed;
-            closeCalendar = scope.closeOnSelect || closeCalendar;
+            closeCalendar = scope.closeOnSelect;
             if (closeCalendar == null) {
               closeCalendar = true;
             }

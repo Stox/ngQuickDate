@@ -264,9 +264,6 @@
             var changed;
             var boolCloseCalendar = (closeCalendar === 'true');
             closeCalendar = scope.closeOnSelect;
-            if (closeCalendar == null) {
-              closeCalendar = true;
-            }
             changed = (!ngModelCtrl.$viewValue && date) || (ngModelCtrl.$viewValue && !date) || ((date && ngModelCtrl.$viewValue) && (date.getTime() !== ngModelCtrl.$viewValue.getTime()));
             if (typeof scope.dateFilter === 'function' && !scope.dateFilter(date)) {
               return false;
